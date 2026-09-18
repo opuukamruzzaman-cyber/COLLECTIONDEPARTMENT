@@ -133,10 +133,17 @@
     transition: border-color 0.3s ease;
   }
 
-  .method-logo {
+  .method-logo-wrapper {
     width: 32px;
     height: 32px;
-    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .method-logo-wrapper svg {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
@@ -488,18 +495,18 @@
         <div class="select-current" onclick="toggleDropdown()">
           <div class="method-info">
             <span class="radio-icon"></span>
-            <img id="selectedLogo" class="method-logo" src="" alt="bKash">
+            <div id="selectedLogo" class="method-logo-wrapper"></div>
             <span class="method-name" id="selectedName">bKash</span>
           </div>
           <span class="dropdown-arrow">▼</span>
         </div>
         <div class="select-options">
           <div class="option-item" onclick="selectMethod('bkash', 'bKash', '01849992657')">
-            <img id="bkashOptLogo" class="method-logo" src="" alt="bKash">
+            <div id="bkashOptLogo" class="method-logo-wrapper"></div>
             <span class="method-name">bKash</span>
           </div>
           <div class="option-item" onclick="selectMethod('nagad', 'Nagad', '01849992657')">
-            <img id="nagadOptLogo" class="method-logo" src="" alt="Nagad">
+            <div id="nagadOptLogo" class="method-logo-wrapper"></div>
             <span class="method-name">Nagad</span>
           </div>
         </div>
@@ -576,18 +583,18 @@
   </div>
 
 <script>
-  // Global Reliable CDN Vectors (Wikimedia Commons)
-  const LOGOS = {
-    bkash: "https://upload.wikimedia.org/wikipedia/commons/8/71/BKash-Icon-Logo.wine.svg",
-    nagad: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Nagad-Logo.wine.svg"
+  // Pure Inline SVG Vector Elements
+  const SVG_LOGOS = {
+    bkash: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="20" fill="#e2136e"/><path d="M20 25h60v50H20z" fill="none"/><path d="M28 30l22 18-22 22V30zm24 0l20 20-20 20V30z" fill="#fff"/></svg>`,
+    nagad: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" rx="20" fill="#f7921e"/><circle cx="50" cy="50" r="30" fill="#fff"/><circle cx="50" cy="50" r="18" fill="#f7921e"/></svg>`
   };
 
   let currentMethod = 'bkash';
 
   window.onload = function() {
-    document.getElementById('selectedLogo').src = LOGOS.bkash;
-    document.getElementById('bkashOptLogo').src = LOGOS.bkash;
-    document.getElementById('nagadOptLogo').src = LOGOS.nagad;
+    document.getElementById('selectedLogo').innerHTML = SVG_LOGOS.bkash;
+    document.getElementById('bkashOptLogo').innerHTML = SVG_LOGOS.bkash;
+    document.getElementById('nagadOptLogo').innerHTML = SVG_LOGOS.nagad;
   };
 
   function toggleDropdown() {
@@ -597,7 +604,7 @@
   function selectMethod(method, name, number) {
     currentMethod = method;
     document.getElementById('selectedName').textContent = name;
-    document.getElementById('selectedLogo').src = LOGOS[method];
+    document.getElementById('selectedLogo').innerHTML = SVG_LOGOS[method];
     document.getElementById('walletNumber').textContent = number;
     document.getElementById('step1Text').textContent = `এই ${name} নাম্বার শুধুমাত্র সেন্ড মানি গ্রহণ করা হয়`;
     document.getElementById('paymentDropdown').classList.remove('open');
