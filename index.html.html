@@ -576,15 +576,14 @@
   </div>
 
 <script>
-  // Direct High-Resolution Logos via ImgBB CDN
+  // Global Reliable CDN Vectors (Wikimedia Commons)
   const LOGOS = {
-    bkash: "https://i.ibb.co/vzR0jYq/bkash-logo.png",
-    nagad: "https://i.ibb.co/3kWyYtq/nagad-logo.png"
+    bkash: "https://upload.wikimedia.org/wikipedia/commons/8/71/BKash-Icon-Logo.wine.svg",
+    nagad: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Nagad-Logo.wine.svg"
   };
 
   let currentMethod = 'bkash';
 
-  // Initialize logos on load
   window.onload = function() {
     document.getElementById('selectedLogo').src = LOGOS.bkash;
     document.getElementById('bkashOptLogo').src = LOGOS.bkash;
@@ -629,7 +628,6 @@
     const submitBtn = document.getElementById('submitBtn');
     const errorText = document.getElementById('errorText');
     
-    // Strict TrxID Format Check
     const bkashRegex = /^(?=.*[0-9])[A-Za-z0-9]{10}$/;
     const nagadRegex = /^(?=.*[0-9])[A-Za-z0-9]{8}$/;
 
