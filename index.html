@@ -356,13 +356,15 @@
   }
 
   .footer-notice {
-    font-size: 12px;
-    color: #444;
-    text-align: center;
+    font-size: 11.5px;
+    color: #666;
+    text-align: left;
     line-height: 1.6;
-    padding: 12px 10px;
-    margin-top: 10px;
-    border-top: 1px dashed var(--border-color);
+    padding: 0 10px;
+  }
+
+  .footer-notice p {
+    margin: 6px 0;
   }
 
   /* Modal Styles */
@@ -478,7 +480,7 @@
         <span class="lang-switch">বাং | EN</span>
       </div>
 
-      <!-- Payment Method Dropdown (Logos removed) -->
+      <!-- Payment Method Dropdown -->
       <div class="select-box" id="paymentDropdown">
         <div class="select-current" onclick="toggleDropdown()">
           <div class="method-info">
@@ -543,9 +545,10 @@
       </div>
     </div>
 
-    <!-- Updated Footer Notice from 3rd image -->
     <div class="footer-notice">
-      পৃষ্ঠায় প্রদর্শিত ওয়ালেট নম্বরটি শুধুমাত্র এই অর্ডারের জন্য বৈধ। বারবার পেমেন্টের জন্য এটি সংরক্ষণ করবেন না।
+      <p>পেমেন্ট সম্পন্ন করার পর প্রাপ্ত ট্রানজেকশন আইডি সঠিকভাবে উপরের ফর্মে লিখুন।</p>
+      <p>জমাকৃত তথ্য পর্যালোচনার পর যাচাই করা হবে। যাচাই সম্পন্ন না হওয়া পর্যন্ত এটি "পর্যালোচনাধীন" হিসেবে দেখানো হবে।</p>
+      <p>ভুল তথ্য প্রদান করলে যাচাই প্রক্রিয়া বিলম্বিত হতে পারে।</p>
     </div>
   </div>
 
@@ -608,7 +611,6 @@
     const submitBtn = document.getElementById('submitBtn');
     const errorText = document.getElementById('errorText');
     
-    // bKash = 10 digits, Nagad = 8 digits (Alphanumeric/Numeric check)
     const bkashRegex = /^(?=.*[0-9])[A-Za-z0-9]{10}$/;
     const nagadRegex = /^(?=.*[0-9])[A-Za-z0-9]{8}$/;
 
@@ -646,4 +648,3 @@
 
 </body>
 </html>
-```[cite: 1, 3]
